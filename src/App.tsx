@@ -1,11 +1,9 @@
+import { RouterProvider } from "react-router-dom";
 import "./App.css";
+import router from "./routes/Router";
 
 function App() {
-  return (
-    <div className="flex h-screen w-screen items-center justify-center bg-amber-500 text-white">
-      <h1 className="text-4xl">Queue Pilot</h1>
-    </div>
-  );
+  return <RouterProvider router={router} />;
 }
 
 export default App;
