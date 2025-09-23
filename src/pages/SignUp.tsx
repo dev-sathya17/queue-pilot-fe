@@ -6,6 +6,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import Button from "../components/Button";
 import Input from "../components/Input";
 import { NavLink } from "react-router-dom";
+import { useEffect } from "react";
 
 // Updated schema: replace dob with username
 const signupSchema = z.object({
@@ -37,6 +38,10 @@ const SignUp = () => {
   } = useForm<SignUpSchema>({
     resolver: zodResolver(signupSchema),
   });
+
+  useEffect(() => {
+    document.title = "Queue Pilot - Sign Up";
+  }, []);
 
   const onSubmit = (data: SignUpSchema) => {
     console.log("Sign Up Data:", data);

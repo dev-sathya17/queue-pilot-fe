@@ -6,6 +6,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import Input from "../components/Input";
 import Button from "../components/Button";
 import { NavLink } from "react-router-dom";
+import { useEffect } from "react";
 
 const resetPasswordSchema = z.object({
   password: z
@@ -36,6 +37,10 @@ const ResetPassword = () => {
   } = useForm<ResetPasswordSchema>({
     resolver: zodResolver(resetPasswordSchema),
   });
+
+  useEffect(() => {
+    document.title = "Queue Pilot - Reset Password";
+  }, []);
 
   const onSubmit = (data: ResetPasswordSchema) => {
     console.log("Login Data:", data);

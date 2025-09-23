@@ -5,6 +5,7 @@ import Input from "../components/Input";
 import Button from "../components/Button";
 import { zodResolver } from "@hookform/resolvers/zod";
 import GoogleIcon from "../assets/icons/google.svg";
+import { useEffect } from "react";
 
 const loginSchema = z.object({
   email: z.string().min(1, "Email is required").email("Invalid email address"),
@@ -31,6 +32,10 @@ const Login = () => {
   } = useForm<LoginSchema>({
     resolver: zodResolver(loginSchema),
   });
+
+  useEffect(() => {
+    document.title = "Queue Pilot - Login";
+  }, []);
 
   const onSubmit = (data: LoginSchema) => {
     console.log("Login Data:", data);

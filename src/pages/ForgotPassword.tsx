@@ -8,6 +8,7 @@ import { ChevronLeft } from "lucide-react";
 import Input from "../components/Input";
 import Button from "../components/Button";
 import { NavLink } from "react-router-dom";
+import { useEffect } from "react";
 
 const forgotPasswordSchema = z.object({
   email: z.string().min(1, "Email is required").email("Invalid email address"),
@@ -23,6 +24,10 @@ const ForgotPassword = () => {
   } = useForm<ForgotPasswordSchema>({
     resolver: zodResolver(forgotPasswordSchema),
   });
+
+  useEffect(() => {
+    document.title = "Queue Pilot - Forgot Password";
+  }, []);
 
   const onSubmit = (data: ForgotPasswordSchema) => {
     console.log("Login Data:", data);
