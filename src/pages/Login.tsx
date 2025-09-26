@@ -43,7 +43,7 @@ const Login = () => {
 
   return (
     <div className="min-h-screen flex items-center justify-center px-4">
-      <form className="max-w-md w-full mx-auto px-4 py-6 md:p-8 rounded-2xl bg-gradient-to-br from-zinc-900 to-black shadow-lg border border-zinc-700 space-y-6 backdrop-blur-sm">
+      <form className="max-w-md w-full mx-auto px-4 py-6 md:p-8 rounded-2xl bg-gradient-to-br from-zinc-900 to-black shadow-lg border border-zinc-800 space-y-6 backdrop-blur-sm">
         {/* Title */}
         <section>
           <h2 className="text-xl md:text-2xl font-bold text-center text-gray-200">

@@ -3,8 +3,13 @@ import SignUp from "../pages/SignUp";
 import Login from "../pages/Login";
 import ForgotPassword from "../pages/ForgotPassword";
 import ResetPassword from "../pages/ResetPassword";
+import LandingPage from "../pages/LandingPage";
 
 const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <LandingPage />,
+  },
   {
     path: "/sign-up",
     element: <SignUp />,
