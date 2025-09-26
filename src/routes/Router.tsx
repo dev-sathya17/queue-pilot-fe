@@ -6,6 +6,7 @@ import ResetPassword from "../pages/ResetPassword";
 import LandingPage from "../pages/LandingPage";
 import Features from "../pages/Features";
 import Pricing from "../pages/Pricing";
+import Docs from "../pages/Docs";
 
 const router = createBrowserRouter([
   {
@@ -35,6 +36,10 @@ const router = createBrowserRouter([
   {
     path: "/pricing",
     element: <Pricing />,
+  },
+  {
+    path: "/docs",
+    element: <Docs />,
   },
 ]);
 

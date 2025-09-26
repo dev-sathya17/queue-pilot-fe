@@ -3,7 +3,7 @@ import { ArrowRight } from "lucide-react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import CTASection from "../components/CTASection";
-import { features } from "../data/features";
+import { features } from "../data/Features";
 
 const LandingPage = () => {
   return (
