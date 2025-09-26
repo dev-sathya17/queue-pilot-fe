@@ -3,8 +3,8 @@
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
-import Input from "../components/Input";
-import Button from "../components/Button";
+import Input from "../components/ui/Input";
+import Button from "../components/ui/Button";
 import { NavLink } from "react-router-dom";
 import { useEffect } from "react";
 
