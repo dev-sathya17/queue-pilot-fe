@@ -1,9 +1,9 @@
 import { NavLink } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import Header from "../components/Header";
-import { features } from "../data/features";
 import Footer from "../components/Footer";
 import CTASection from "../components/CTASection";
+import { features } from "../data/features";
 
 const LandingPage = () => {
   return (

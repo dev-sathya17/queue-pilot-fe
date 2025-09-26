@@ -5,6 +5,7 @@ import ForgotPassword from "../pages/ForgotPassword";
 import ResetPassword from "../pages/ResetPassword";
 import LandingPage from "../pages/LandingPage";
 import Features from "../pages/Features";
+import Pricing from "../pages/Pricing";
 
 const router = createBrowserRouter([
   {
@@ -30,6 +31,10 @@ const router = createBrowserRouter([
   {
     path: "/features",
     element: <Features />,
+  },
+  {
+    path: "/pricing",
+    element: <Pricing />,
   },
 ]);
 
