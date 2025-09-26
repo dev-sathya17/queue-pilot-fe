@@ -1,9 +1,13 @@
 import Header from "../components/Header";
-import { features } from "../data/features";
+import { features } from "../data/Features";
 import Footer from "../components/Footer";
 import CTASection from "../components/CTASection";
+import { useEffect } from "react";
 
 const Features = () => {
+  useEffect(() => {
+    document.title = "Queue Pilot - Features";
+  }, []);
   return (
     <div className="min-h-screen w-full bg-gradient-to-b from-black via-zinc-950 to-black text-gray-200 flex flex-col">
       {/* Header Section */}

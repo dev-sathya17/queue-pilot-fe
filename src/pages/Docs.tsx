@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { faqCategory, docCategories as initialCategories } from "../data/docs";
@@ -18,6 +18,10 @@ const Docs = () => {
   const toggleSection = (title: string) => {
     setExpandedSections((prev) => ({ ...prev, [title]: !prev[title] }));
   };
+
+  useEffect(() => {
+    document.title = "Queue Pilot - Docs";
+  }, []);
 
   return (
     <div className="min-h-screen w-full bg-gradient-to-b from-black via-zinc-950 to-black text-gray-200 flex flex-col">

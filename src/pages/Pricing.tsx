@@ -3,8 +3,13 @@ import Footer from "../components/Footer";
 import CTASection from "../components/CTASection";
 import Header from "../components/Header";
 import { plans } from "../data/plans";
+import { useEffect } from "react";
 
 const Pricing = () => {
+  useEffect(() => {
+    document.title = "Queue Pilot - Pricing";
+  }, []);
+
   return (
     <div className="min-h-screen w-full bg-gradient-to-b from-black via-zinc-950 to-black text-gray-200 flex flex-col">
       {/* Header Section */}

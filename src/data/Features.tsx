@@ -1,4 +1,4 @@
-import { Zap, BarChart3, Shield, Settings, CheckCircle } from "lucide-react";
+import { Zap, BarChart3, Shield, CreditCard, CheckCircle } from "lucide-react";
 
 export const features = [
   {
@@ -17,9 +17,9 @@ export const features = [
     desc: "Encryption, role-based access, and audit logs keep your data safe.",
   },
   {
-    icon: <Settings className="w-8 h-8 text-yellow-400" />,
-    title: "Customizable Workflows",
-    desc: "Define retry logic, priorities, and concurrency to fit your needs.",
+    icon: <CreditCard className="w-8 h-8 text-yellow-400" />,
+    title: "Credits-Based SaaS",
+    desc: "Simple pricing — pay with credits per job, track usage, and scale effortlessly as you grow.",
   },
   {
     icon: <CheckCircle className="w-8 h-8 text-pink-300" />,

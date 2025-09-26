@@ -4,8 +4,12 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import CTASection from "../components/CTASection";
 import { features } from "../data/Features";
+import { useEffect } from "react";
 
 const LandingPage = () => {
+  useEffect(() => {
+    document.title = "Queue Pilot - Home";
+  }, []);
   return (
     <div className="min-h-screen w-full bg-gradient-to-b from-black via-zinc-950 to-black text-gray-200 flex flex-col">
       {/* Header */}
