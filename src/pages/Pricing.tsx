@@ -11,14 +11,14 @@ const Pricing = () => {
       <Header />
 
       {/* Hero Section */}
-      <section className="px-4 sm:px-12 md:px-20 py-16 sm:py-20 md:py-28 text-center">
-        <h2 className="text-2xl sm:text-3xl md:text-5xl font-extrabold leading-tight max-w-3xl md:max-w-4xl mx-auto">
+      <section className="px-6 sm:px-12 md:px-20 py-20 md:py-28 text-center">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight max-w-4xl mx-auto">
           Choose the Plan That Fits Your Needs
           <span className="block bg-gradient-to-r from-pink-500 to-blue-400 bg-clip-text text-transparent">
             Flexible Pricing for Every Scale ✈️
           </span>
         </h2>
-        <p className="mt-4 sm:mt-6 text-gray-400 max-w-xl sm:max-w-2xl mx-auto text-sm sm:text-base md:text-lg">
+        <p className="mt-6 text-gray-400 max-w-2xl mx-auto text-base sm:text-lg">
           Queue Pilot offers plans for hobby projects to large-scale
           enterprises. Scale smoothly without worrying about job execution
           limits.
@@ -26,29 +26,34 @@ const Pricing = () => {
       </section>
 
       {/* Pricing Grid */}
-      <section className="px-4 sm:px-12 md:px-20 py-12 sm:py-16 md:py-24 bg-gradient-to-b from-zinc-950/40 to-black">
-        <div className="grid gap-6 sm:gap-8 md:gap-10 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+      <section className="px-6 sm:px-12 md:px-20 py-16 md:py-24 bg-gradient-to-b from-zinc-950/40 to-black">
+        <div className="grid gap-10 sm:grid-cols-2 md:grid-cols-3">
           {plans.map((plan, i) => (
             <div
               key={i}
-              className={`rounded-2xl p-6 sm:p-8 border border-white/5 ${plan.bg} hover:bg-white/[0.05] transition shadow-md text-center flex flex-col justify-between`}
+              className={`rounded-2xl p-8 border border-white/5 ${plan.bg} hover:bg-white/[0.05] transition shadow-md flex flex-col justify-between`}
             >
               <div>
-                <h4 className="text-lg sm:text-xl font-semibold mb-3 sm:mb-4">
-                  {plan.name}
-                </h4>
-                <p className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6">
+                <div className="flex items-center justify-between mb-4">
+                  <h4 className="text-xl font-semibold">{plan.name}</h4>
+                  {plan.name === "Pro" && (
+                    <div>
+                      <span className="inline-block px-3 py-1 text-sm bg-blue-400/20 text-blue-300 rounded-full font-medium">
+                        Most Popular
+                      </span>
+                    </div>
+                  )}
+                </div>
+                <p className="text-3xl sm:text-4xl font-bold mb-6">
                   {plan.price}
                   {plan.price !== "Contact Us" && (
-                    <span className="text-gray-400 text-sm sm:text-lg">
-                      /mo
-                    </span>
+                    <span className="text-gray-400 text-lg">/mo</span>
                   )}
                 </p>
-                <ul className="mb-4 sm:mb-6 text-gray-400 text-xs sm:text-sm space-y-1 sm:space-y-2">
+                <ul className="mb-6 text-gray-400 text-sm space-y-2">
                   {plan.features.map((f, idx) => (
                     <li key={idx} className="flex items-center gap-2">
-                      <span className="w-3 h-3 sm:w-4 sm:h-4 rounded-full bg-pink-400 flex-shrink-0 mt-1" />
+                      <span className="w-4 h-4 rounded-full bg-pink-400 flex-shrink-0 mt-1" />
                       {f}
                     </li>
                   ))}
@@ -56,9 +61,9 @@ const Pricing = () => {
               </div>
               <NavLink
                 to="/signup"
-                className={`mt-3 sm:mt-4 px-4 sm:px-6 py-2 sm:py-3 rounded-xl bg-gradient-to-r ${plan.gradient} text-black font-semibold shadow-lg hover:opacity-90 transition`}
+                className={`mt-4 px-6 py-3 rounded-xl text-center bg-gradient-to-r ${plan.gradient} text-black font-semibold shadow-lg hover:opacity-90 transition`}
               >
-                {plan.price === "Contact Us" ? "Contact Sales" : "Get Started"}
+                {plan.name === "Enterprise" ? "Contact Sales" : "Get Started"}
               </NavLink>
             </div>
           ))}
