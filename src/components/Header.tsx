@@ -1,13 +1,43 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Logo from "../assets/icons/logo.png";
 import { NavLink, useNavigate } from "react-router-dom";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Sun, Moon } from "lucide-react";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [theme, setTheme] = useState<"light" | "dark">("dark");
   const navigate = useNavigate();
+
+  // theme toggle (robust + preserves system on first load)
+  useEffect(() => {
+    const saved = localStorage.getItem("theme"); // 'light' | 'dark' | null
+    if (
+      saved === "dark" ||
+      (!saved &&
+        window.matchMedia &&
+        window.matchMedia("(prefers-color-scheme: dark)").matches)
+    ) {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+  }, []);
+
+  const toggleTheme = () => {
+    const isDark = document.documentElement.classList.toggle("dark");
+    localStorage.setItem("theme", isDark ? "dark" : "light");
+    setTheme(isDark ? "dark" : "light");
+  };
+
   return (
-    <header className="flex justify-between items-center px-4 sm:px-8 py-6 border-b border-white/5">
+    <header
+      className="flex justify-between items-center px-4 sm:px-8 py-6 
+                   bg-white dark:bg-black/10 
+                   text-gray-900 dark:text-gray-200
+                   border-b border-gray-300 dark:border-gray-200/30
+                   backdrop-blur-sm transition-colors duration-300"
+    >
+      {/* Logo */}
       <div
         className="flex items-center gap-3 cursor-pointer"
         onClick={() => navigate("/")}
@@ -23,51 +53,56 @@ const Header = () => {
       </div>
 
       {/* Desktop Nav */}
-      {/* Desktop Nav */}
       <nav className="hidden md:flex items-center gap-6 text-sm font-medium">
         <NavLink
           to="/"
           className={({ isActive }) =>
             `hover:text-pink-400 transition ${
-              isActive ? "text-pink-400 font-semibold" : "text-gray-300"
+              isActive ? "text-pink-400 font-semibold" : "text-gray-500"
             }`
           }
         >
           Home
         </NavLink>
-
         <NavLink
           to="/features"
           className={({ isActive }) =>
             `hover:text-pink-400 transition ${
-              isActive ? "text-pink-400 font-semibold" : "text-gray-300"
+              isActive ? "text-pink-400 font-semibold" : "text-gray-500"
             }`
           }
         >
           Features
         </NavLink>
-
         <NavLink
           to="/pricing"
           className={({ isActive }) =>
             `hover:text-pink-400 transition ${
-              isActive ? "text-pink-400 font-semibold" : "text-gray-300"
+              isActive ? "text-pink-400 font-semibold" : "text-gray-500"
             }`
           }
         >
           Pricing
         </NavLink>
-
         <NavLink
           to="/docs"
           className={({ isActive }) =>
             `hover:text-pink-400 transition ${
-              isActive ? "text-pink-400 font-semibold" : "text-gray-300"
+              isActive ? "text-pink-400 font-semibold" : "text-gray-500"
             }`
           }
         >
           Docs
         </NavLink>
+
+        {/* Theme Toggle */}
+        <button
+          onClick={toggleTheme}
+          className="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-zinc-800 transition"
+          aria-label="Toggle theme"
+        >
+          {theme === "dark" ? <Sun size={18} /> : <Moon size={18} />}
+        </button>
 
         <NavLink
           to="/sign-up"
@@ -76,15 +111,16 @@ const Header = () => {
           Get Started
         </NavLink>
       </nav>
+
       {/* Mobile Nav */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="md:hidden text-gray-300"
+        className="md:hidden text-gray-300 dark:text-gray-700"
       >
         {isOpen ? <X size={24} /> : <Menu size={24} />}
       </button>
       {isOpen && (
-        <div className="absolute top-16 right-4 bg-zinc-900 border border-white/10 rounded-lg shadow-lg p-4 flex flex-col gap-3 md:hidden z-50">
+        <div className="absolute top-16 right-4 dark:bg-zinc-900 bg-white border dark:border-white/10 border-gray-200 rounded-lg shadow-lg p-4 flex flex-col item gap-3 md:hidden z-50">
           <NavLink to="/features" className="hover:text-pink-400">
             Features
           </NavLink>
@@ -94,6 +130,16 @@ const Header = () => {
           <NavLink to="/docs" className="hover:text-pink-400">
             Docs
           </NavLink>
+
+          {/* Theme toggle inside mobile menu */}
+          <button
+            onClick={toggleTheme}
+            className="flex items-center gap-2 rounded-lg hover:text-pink-400 transition"
+          >
+            {theme === "dark" ? "Light Mode" : "Dark Mode"}
+            {theme === "dark" ? <Sun size={18} /> : <Moon size={18} />}
+          </button>
+
           <NavLink
             to="/sign-up"
             className="px-4 py-2 rounded-lg bg-gradient-to-r from-pink-500 to-blue-400 text-black font-semibold shadow-lg hover:opacity-90 transition text-center"

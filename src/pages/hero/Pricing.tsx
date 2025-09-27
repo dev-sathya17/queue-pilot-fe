@@ -11,7 +11,7 @@ const Pricing = () => {
   }, []);
 
   return (
-    <div className="min-h-screen w-full bg-gradient-to-b from-black via-zinc-950 to-black text-gray-200 flex flex-col">
+    <div className="min-h-screen w-full bg-gradient-to-b from-gray-50 to-white text-gray-900 dark:from-black dark:via-zinc-950 dark:to-black dark:text-gray-200 flex flex-col transition-colors duration-300">
       {/* Header Section */}
       <Header />
 
@@ -23,7 +23,7 @@ const Pricing = () => {
             Flexible Pricing for Every Scale ✈️
           </span>
         </h2>
-        <p className="mt-6 text-gray-400 max-w-2xl mx-auto text-base sm:text-lg">
+        <p className="mt-6 text-gray-600 dark:text-gray-400 max-w-2xl mx-auto text-base sm:text-lg">
           Queue Pilot offers plans for hobby projects to large-scale
           enterprises. Scale smoothly without worrying about job execution
           limits.
@@ -31,19 +31,19 @@ const Pricing = () => {
       </section>
 
       {/* Pricing Grid */}
-      <section className="px-6 sm:px-12 md:px-20 py-16 md:py-24 bg-gradient-to-b from-zinc-950/40 to-black">
+      <section className="px-6 sm:px-12 md:px-20 py-16 md:py-24 bg-gradient-to-b from-gray-100 to-white dark:from-zinc-950/40 dark:to-black transition-colors duration-300">
         <div className="grid gap-10 sm:grid-cols-2 md:grid-cols-3">
           {plans.map((plan, i) => (
             <div
               key={i}
-              className={`rounded-2xl p-8 border border-white/5 ${plan.bg} hover:bg-white/[0.05] transition shadow-md flex flex-col justify-between`}
+              className={`rounded-2xl p-8 border border-gray-200 dark:border-white/5 bg-white dark:bg-white/[0.02] hover:bg-gray-50 dark:hover:bg-white/[0.05] transition shadow-md flex flex-col justify-between`}
             >
               <div>
                 <div className="flex items-center justify-between mb-4">
                   <h4 className="text-xl font-semibold">{plan.name}</h4>
                   {plan.name === "Pro" && (
                     <div>
-                      <span className="inline-block px-3 py-1 text-sm bg-blue-400/20 text-blue-300 rounded-full font-medium">
+                      <span className="inline-block px-3 py-1 text-sm bg-blue-100 text-blue-700 dark:bg-blue-400/20 dark:text-blue-300 rounded-full font-medium">
                         Most Popular
                       </span>
                     </div>
@@ -52,13 +52,15 @@ const Pricing = () => {
                 <p className="text-3xl sm:text-4xl font-bold mb-6">
                   {plan.price}
                   {plan.price !== "Contact Us" && (
-                    <span className="text-gray-400 text-lg">/mo</span>
+                    <span className="text-gray-500 dark:text-gray-400 text-lg">
+                      /mo
+                    </span>
                   )}
                 </p>
-                <ul className="mb-6 text-gray-400 text-sm space-y-2">
+                <ul className="mb-6 text-gray-600 dark:text-gray-400 text-sm space-y-2">
                   {plan.features.map((f, idx) => (
                     <li key={idx} className="flex items-center gap-2">
-                      <span className="w-4 h-4 rounded-full bg-pink-400 flex-shrink-0 mt-1" />
+                      <span className="w-4 h-4 rounded-full bg-pink-500 flex-shrink-0 mt-1" />
                       {f}
                     </li>
                   ))}

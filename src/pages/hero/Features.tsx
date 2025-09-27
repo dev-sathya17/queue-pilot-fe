@@ -9,7 +9,7 @@ const Features = () => {
     document.title = "Queue Pilot - Features";
   }, []);
   return (
-    <div className="min-h-screen w-full bg-gradient-to-b from-black via-zinc-950 to-black text-gray-200 flex flex-col">
+    <div className="min-h-screen w-full bg-gradient-to-b from-gray-50 to-white text-gray-900 dark:from-black dark:via-zinc-950 dark:to-black dark:text-gray-200 flex flex-col transition-colors duration-300">
       {/* Header Section */}
       <Header />
 
@@ -21,23 +21,25 @@ const Features = () => {
             Smoothly, Reliably, and at Scale ✈️
           </span>
         </h2>
-        <p className="mt-6 text-gray-400 max-w-2xl mx-auto text-base sm:text-lg">
+        <p className="mt-6 text-gray-600 dark:text-gray-400 max-w-2xl mx-auto text-base sm:text-lg">
           Queue Pilot handles the heavy lifting of job scheduling, execution,
           and monitoring, so you can focus on building your product.
         </p>
       </section>
 
       {/* Feature Grid */}
-      <section className="px-6 sm:px-12 md:px-20 py-16 md:py-24 bg-gradient-to-b from-zinc-950/40 to-black">
+      <section className="px-6 sm:px-12 md:px-20 py-16 md:py-24 bg-gradient-to-b from-gray-100 to-white dark:from-zinc-950/40 dark:to-black transition-colors duration-300">
         <div className="grid gap-10 sm:grid-cols-2 md:grid-cols-3">
           {features.map((f, i) => (
             <div
               key={i}
-              className="rounded-2xl p-6 border border-white/5 bg-white/[0.02] hover:bg-white/[0.05] transition shadow-md text-center"
+              className="rounded-2xl p-6 border border-gray-200 dark:border-white/5 bg-white hover:bg-gray-50 dark:bg-white/[0.02] dark:hover:bg-white/[0.05] transition shadow-md text-center"
             >
               <div className="flex justify-center mb-4">{f.icon}</div>
               <h4 className="text-lg font-semibold mb-2">{f.title}</h4>
-              <p className="text-gray-400 text-sm">{f.desc}</p>
+              <p className="text-gray-600 dark:text-gray-400 text-sm">
+                {f.desc}
+              </p>
             </div>
           ))}
         </div>
@@ -48,7 +50,7 @@ const Features = () => {
         <h3 className="text-2xl md:text-3xl font-bold mb-6">
           From Queue to Completion 🚀
         </h3>
-        <p className="text-gray-400 max-w-xl mx-auto mb-12">
+        <p className="text-gray-600 dark:text-gray-400 max-w-xl mx-auto mb-12">
           Every job you submit goes through a seamless process — from being
           queued, picked up by workers, executed, and finally tracked in your
           dashboard.
@@ -57,12 +59,12 @@ const Features = () => {
           {["Queued", "Processing", "Completed"].map((step, idx) => (
             <div
               key={idx}
-              className="w-full md:w-75 px-6 py-4 rounded-xl border border-white/5 bg-white/[0.02] shadow-md flex flex-col items-center"
+              className="w-full md:w-75 px-6 py-4 rounded-xl border border-gray-200 dark:border-white/5 bg-white dark:bg-white/[0.02] shadow-md flex flex-col items-center transition-colors"
             >
               <span className="text-xl font-semibold mb-2 bg-gradient-to-r from-pink-500 to-blue-400 bg-clip-text text-transparent">
                 {step}
               </span>
-              <span className="w-3 h-3 rounded-full bg-pink-400 animate-pulse" />
+              <span className="w-3 h-3 rounded-full bg-pink-500 animate-pulse" />
             </div>
           ))}
         </div>

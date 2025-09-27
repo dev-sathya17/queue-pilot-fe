@@ -27,7 +27,7 @@ const Docs = () => {
   }, []);
 
   return (
-    <div className="min-h-screen w-full bg-gradient-to-b from-black via-zinc-950 to-black text-gray-200 flex flex-col">
+    <div className="min-h-screen w-full bg-gradient-to-b from-gray-50 to-white text-gray-900 dark:from-black dark:via-zinc-950 dark:to-black dark:text-gray-200 flex flex-col transition-colors duration-300">
       <Header />
 
       {/* Hero Section */}
@@ -35,7 +35,7 @@ const Docs = () => {
         <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-blue-400">
           Queue Pilot Documentation
         </h1>
-        <p className="mt-4 text-gray-400 max-w-2xl mx-auto text-sm sm:text-base md:text-lg">
+        <p className="mt-4 text-gray-600 dark:text-gray-400 max-w-2xl mx-auto text-sm sm:text-base md:text-lg">
           Everything you need to get started, understand the credit system, run
           jobs efficiently, and manage your account.
         </p>
@@ -46,23 +46,24 @@ const Docs = () => {
           placeholder="Search docs..."
           value={search}
           onChange={(e) => setSearch(e.target.value)}
-          className="mt-6 w-full sm:w-1/2 px-4 py-2 rounded-lg bg-white/[0.05] border border-white/10 focus:outline-none focus:ring-2 focus:ring-pink-500 text-gray-200"
+          className="mt-6 w-full sm:w-1/2 px-4 py-2 rounded-lg bg-gray-100 dark:bg-white/[0.05] border border-gray-200 dark:border-white/10 focus:outline-none focus:ring-2 focus:ring-pink-500 text-gray-900 dark:text-gray-200 transition"
         />
       </section>
 
       {/* Docs Content with Sidebar */}
-      <section className="flex flex-col lg:flex-row px-4 sm:px-16 md:px-20 py-28 sm:py-8 md:py-4 gap-6">
+      <section className="flex flex-col lg:flex-row px-4 sm:px-16 md:px-20 py-8 gap-6">
         {/* Sidebar */}
         <aside className="w-full lg:w-64 flex-shrink-0">
-          <div className="hidden lg:block bg-white/[0.02] border border-white/5 rounded-xl p-4">
+          {/* Desktop Sidebar */}
+          <div className="hidden lg:block bg-gray-100 dark:bg-white/[0.02] border border-gray-200 dark:border-white/5 rounded-xl p-4">
             <h2 className="text-lg font-semibold mb-4">Categories</h2>
             <ul className="space-y-2">
               {docCategories.map((cat) => (
                 <li
                   key={cat.name}
-                  className={`cursor-pointer px-3 py-1 rounded-lg hover:bg-white/[0.05] transition ${
+                  className={`cursor-pointer px-3 py-1 rounded-lg hover:bg-gray-200 dark:hover:bg-white/[0.05] transition ${
                     selectedCategory === cat.name
-                      ? "bg-pink-500/30 font-semibold"
+                      ? "bg-pink-500/20 dark:bg-pink-500/30 font-semibold"
                       : ""
                   }`}
                   onClick={() => setSelectedCategory(cat.name)}
@@ -73,11 +74,11 @@ const Docs = () => {
             </ul>
           </div>
 
-          {/* Mobile dropdown */}
+          {/* Mobile Dropdown */}
           <div className="lg:hidden relative mb-4">
             <button
               onClick={() => setDropdownOpen((prev) => !prev)}
-              className="w-full px-4 py-2 bg-zinc-900/80 backdrop-blur-md border border-white/10 rounded-lg flex justify-between items-center focus:outline-none focus:ring-2 focus:ring-pink-500"
+              className="w-full px-4 py-2 bg-gray-100 dark:bg-zinc-900/80 border border-gray-200 dark:border-white/10 rounded-lg flex justify-between items-center focus:outline-none focus:ring-2 focus:ring-pink-500 transition"
             >
               <span>{selectedCategory}</span>
               <svg
@@ -97,11 +98,11 @@ const Docs = () => {
               </svg>
             </button>
             {dropdownOpen && (
-              <ul className="absolute mt-2 w-full bg-zinc-900/90 border border-white/10 rounded-lg shadow-lg z-20">
+              <ul className="absolute mt-2 w-full bg-gray-100 dark:bg-zinc-900/90 border border-gray-200 dark:border-white/10 rounded-lg shadow-lg z-20">
                 {docCategories.map((cat) => (
                   <li
                     key={cat.name}
-                    className="px-4 py-2 cursor-pointer hover:bg-zinc-800/70 transition"
+                    className="px-4 py-2 cursor-pointer hover:bg-gray-200 dark:hover:bg-zinc-800/70 transition"
                     onClick={() => {
                       setSelectedCategory(cat.name);
                       setDropdownOpen(false);
@@ -129,19 +130,19 @@ const Docs = () => {
                 .map((item) => (
                   <div
                     key={item.title}
-                    className="bg-white/[0.02] border border-white/5 rounded-xl p-4 hover:bg-white/[0.05] transition cursor-pointer"
+                    className="bg-gray-50 dark:bg-white/[0.02] border border-gray-200 dark:border-white/5 rounded-xl p-4 hover:bg-gray-100 dark:hover:bg-white/[0.05] transition cursor-pointer"
                   >
                     <div
                       className="flex justify-between items-center"
                       onClick={() => toggleSection(item.title)}
                     >
                       <h3 className="font-semibold">{item.title}</h3>
-                      <span className="text-gray-400">
+                      <span className="text-gray-500 dark:text-gray-400">
                         {expandedSections[item.title] ? "-" : "+"}
                       </span>
                     </div>
                     {expandedSections[item.title] && (
-                      <p className="mt-2 text-gray-400 text-sm">
+                      <p className="mt-2 text-gray-600 dark:text-gray-400 text-sm">
                         {item.content}
                       </p>
                     )}

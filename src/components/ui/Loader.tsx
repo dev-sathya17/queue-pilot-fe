@@ -16,7 +16,7 @@ const Loader: React.FC<LoaderProps> = ({
       role="status"
       aria-live="polite"
       aria-busy="true"
-      className={`flex flex-col items-center justify-center gap-4 ${className}`}
+      className={`min-h-screen flex flex-col items-center justify-center gap-4 bg-gray-300 dark:bg-black ${className}`}
     >
       <style>{`
         @keyframes move-jobs {
@@ -40,7 +40,7 @@ const Loader: React.FC<LoaderProps> = ({
         {Array.from({ length: 3 }).map((_, i) => (
           <div
             key={i}
-            className="absolute w-6 h-6 rounded-md bg-gradient-to-r from-pink-500 to-blue-400 shadow-lg"
+            className="absolute w-6 h-6 rounded-md bg-gradient-to-r from-pink-500 to-blue-400 shadow-lg dark:from-pink-600 dark:to-blue-500"
             style={{
               animation: `move-jobs 2.4s linear infinite`,
               animationDelay: `${i * 0.8}s`,
@@ -70,12 +70,12 @@ const Loader: React.FC<LoaderProps> = ({
 
       {/* Message + progress bar */}
       <div className="flex flex-col items-center gap-2">
-        <p className="text-sm md:text-base text-gray-300 font-medium">
+        <p className="text-sm md:text-base font-medium text-gray-700 dark:text-gray-300">
           {message}
         </p>
 
         <div
-          className="w-48 h-1 rounded-full bg-zinc-800 overflow-hidden"
+          className="w-48 h-1 rounded-full bg-zinc-200 dark:bg-zinc-800 overflow-hidden"
           aria-hidden
         >
           <div
