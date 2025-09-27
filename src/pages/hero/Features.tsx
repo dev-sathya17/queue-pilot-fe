@@ -1,7 +1,7 @@
-import Header from "../components/Header";
-import { features } from "../data/Features";
-import Footer from "../components/Footer";
-import CTASection from "../components/CTASection";
+import Header from "../../components/Header";
+import { features } from "../../data/Features";
+import Footer from "../../components/Footer";
+import CTASection from "../../components/CTASection";
 import { useEffect } from "react";
 
 const Features = () => {

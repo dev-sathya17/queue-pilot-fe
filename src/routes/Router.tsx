@@ -1,12 +1,13 @@
 import { createBrowserRouter } from "react-router-dom";
-import SignUp from "../pages/SignUp";
-import Login from "../pages/Login";
-import ForgotPassword from "../pages/ForgotPassword";
-import ResetPassword from "../pages/ResetPassword";
-import LandingPage from "../pages/LandingPage";
-import Features from "../pages/Features";
-import Pricing from "../pages/Pricing";
-import Docs from "../pages/Docs";
+import SignUp from "../pages/auth/SignUp";
+import Login from "../pages/auth/Login";
+import ForgotPassword from "../pages/auth/ForgotPassword";
+import ResetPassword from "../pages/auth/ResetPassword";
+import LandingPage from "../pages/hero/LandingPage";
+import Features from "../pages/hero/Features";
+import Pricing from "../pages/hero/Pricing";
+import Docs from "../pages/hero/Docs";
+import NotFound from "../pages/utils/NotFound";
 
 const router = createBrowserRouter([
   {
@@ -40,6 +41,10 @@ const router = createBrowserRouter([
   {
     path: "/docs",
     element: <Docs />,
+  },
+  {
+    path: "*",
+    element: <NotFound />,
   },
 ]);
 

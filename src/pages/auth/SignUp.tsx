@@ -1,10 +1,10 @@
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 
-import GoogleIcon from "../assets/icons/google.svg";
+import GoogleIcon from "../../assets/icons/google.svg";
 import { zodResolver } from "@hookform/resolvers/zod";
-import Button from "../components/ui/Button";
-import Input from "../components/ui/Input";
+import Button from "../../components/ui/Button";
+import Input from "../../components/ui/Input";
 import { NavLink } from "react-router-dom";
 import { useEffect } from "react";
 

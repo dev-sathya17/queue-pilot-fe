@@ -5,8 +5,8 @@ import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 
 import { ChevronLeft } from "lucide-react";
-import Input from "../components/ui/Input";
-import Button from "../components/ui/Button";
+import Input from "../../components/ui/Input";
+import Button from "../../components/ui/Button";
 import { NavLink } from "react-router-dom";
 import { useEffect } from "react";
 

@@ -1,10 +1,10 @@
 import { useForm } from "react-hook-form";
 import { NavLink } from "react-router-dom";
 import { z } from "zod";
-import Input from "../components/ui/Input";
-import Button from "../components/ui/Button";
+import Input from "../../components/ui/Input";
+import Button from "../../components/ui/Button";
 import { zodResolver } from "@hookform/resolvers/zod";
-import GoogleIcon from "../assets/icons/google.svg";
+import GoogleIcon from "../../assets/icons/google.svg";
 import { useEffect } from "react";
 
 const loginSchema = z.object({
